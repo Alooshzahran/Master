@@ -1,0 +1,198 @@
+﻿@model master1.Models.userinfo
+
+    @{
+        ViewBag.Title = "Profile";
+        Layout = "~/Views/Shared/_masterpage.cshtml";
+    }
+    @using (Html.BeginForm())
+     {
+                    @Html.AntiForgeryToken()
+
+           <div class="container">
+            <div class="main-body">
+
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="main-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="@Url.Action("Home", "container")">Home</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                    </ol>
+                </nav>
+                <!-- /Breadcrumb -->
+
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="~/photos/person_2.jpg" alt="Admin" class="rounded-circle" width="150">
+                                    <div class="mt-3">
+                                        @foreach (var item in ViewBag.dbinfo)
+            {
+
+
+                                            <h4>@item.Username</h4>
+                                        <p class="text-secondary mb-1">@item.Bio</p>
+
+        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><a href="@Url.Action("Profile", "container")?type=info">Personal Information</a></h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><a href="@Url.Action("Profile", "container")?type=orders">Orders</a></h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><a href="@Url.Action("cart", "container")">Current Cart</a></h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><a href="@Url.Action("Contact", "Home")">Contact us</a></h6>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+
+
+
+                        <div class="card mb-3" id="profileinfo">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Full Name</h6>
+                                    </div>
+                                    @foreach (var item in ViewBag.dbinfo)
+                                    {
+
+                                        <div class="col-sm-9 text-secondary">
+                                            @item.Username
+                                        </div>
+                                    }
+
+                                    </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    @foreach (var item in ViewBag.dbinfo)
+                                    {
+                                        <div class="col-sm-9 text-secondary">
+                                            @item.Email
+                                        </div>
+                                        }
+                                    </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Phone</h6>
+                                    </div>
+                                    @foreach (var item in ViewBag.dbinfo)
+                                    {
+                                        <div class="col-sm-9 text-secondary">
+                                            @item.Phone
+                                        </div>
+                                        }
+                                    </div>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Address</h6>
+                                    </div>
+                                    @foreach (var item in ViewBag.dbinfo)
+                                    {
+                                        <div class="col-sm-9 text-secondary">
+                                            @item.Address
+                                        </div>
+                                    }
+                                    </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a class="btn btn-info " onclick="Appearedit()">Edit</a>
+                                        @Html.ActionLink("Edit", "Edit", "userinfoes")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" id="editinfo" style="display:none;">
+
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Full Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        
+                                        @Html.EditorFor(model => model.Username, new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        @Html.EditorFor(model => model.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Phone</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        @Html.EditorFor(model => model.Phone, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Bio</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        @Html.EditorFor(model => model.Bio, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Address</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        @Html.EditorFor(model => model.Address, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="button" class="btn btn-primary px-4" onclick="Saveinfo()" value="Save Changes">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            function Appearedit() {
+                document.getElementById("editinfo").style.display = "block";
+                document.getElementById("profileinfo").style.display = "none";
+            }
+            function Saveinfo() {
+                document.getElementById("editinfo").style.display = "none";
+                document.getElementById("profileinfo").style.display = "block";
+            }</script>
+    }

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<master1.Models.Rosheta>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+@using (Html.BeginForm("Index", "Roshetas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div style="display:flex;flex-direction:row;justify-content:space-around">
+    <h2>Drugs Requst</h2>
+    <h2>No. of Rosheta : @Model.Count()</h2>
+    <h2>No. of users : @ViewBag.us</h2>
+</div>
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                User Email
+            </th>
+            <th>
+                Rosheta pic
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                age
+            </th>
+            <th>
+                note
+            </th>
+            <th>
+                Accept_doc
+            </th>
+            @*<th>
+                Accept_user
+                   </th>*@
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Rosheta_pic)*@
+                    <a href='../photos/@item.Rosheta_pic' download />
+                    <img src='../photos/@item.Rosheta_pic' style="width: 50px;height:50px" class="thumbnail" />
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.note)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Accept_doc)*@
+                    <!--@using (Html.BeginForm("Index", "Roshetas", FormMethod.Get))
+
+    {
+        <input type="Submit" value="Accept" class="btn btn-success" />
+
+        <input type="Submit" value="Reject" class="btn btn-danger" />
+    }-->
+                    @Html.ActionLink("Accept", "Edit", new { id = item.Rosheta_id }, new { @class = "btn btn-success" })
+
+
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Accept_user)
+                    </td>*@
+
+                <td>
+                    @*@Html.ActionLink("Details", "Details", new { id = item.Rosheta_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Rosheta_id })*@
+                </td>
+            </tr>
+
+        }
+
+    </table>
+}

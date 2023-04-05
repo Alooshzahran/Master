@@ -1,0 +1,50 @@
+﻿@model IEnumerable<master1.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+
+}
+
+<div style="display:flex;flex-direction:row;justify-content:space-around">
+    <h2>Orders</h2>
+    <h2>No. of Orders : @Model.Count()</h2>
+    <h2>No. of users : @ViewBag.us</h2>
+</div>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.total_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Order_id }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.Order_id }, new { @class = "btn btn-info" }) 
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Order_id })*@
+        </td>
+    </tr>
+}
+
+</table>

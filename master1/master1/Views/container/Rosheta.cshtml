@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Rosheta";
+    Layout = "~/Views/Shared/_masterpage.cshtml";
+}
+
+
+<style>
+    body {
+        background-image: url('../../photos/background.jfif');
+       /* background-size: cover;
+        background-repeat: no-repeat;*/
+        width: 100%;
+    }
+
+    form {
+        margin: 5% 15% 5% 15%;
+        background-color:white;
+    }
+
+    table {
+        width: 75%;
+        margin-left: 13%;
+        height: 500px;
+        /*        background-color:antiquewhite;   */
+    }
+
+    footer {
+        background-color: white;
+    }
+</style>
+<form>
+    <p style="color:black; font-size:45px;text-align:center">Add your Rosheta</p>
+    <br /> <table>
+
+        <tr>
+            <td>Name</td>
+            <td>
+                <input id="txtname" type="text" class="form-control " />
+            </td>
+
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input id="Text1" type="text" class="form-control" /></td>
+
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td><input id="Text1" type="text" class="form-control" /></td>
+
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input id="Text1" type="text" class="form-control" /></td>
+
+        </tr>
+        <tr>
+            <td>city</td>
+            <td><input id="Text1" type="text" class="form-control" /></td>
+
+        </tr>
+        <tr>
+            <td>location</td>
+            <td><input id="Text1" type="text" class="form-control" /></td>
+
+        </tr>
+        <tr>
+            <td>roshata</td>
+            <td><input id="File1" type="file" /></td>
+
+        </tr>
+        <tr>
+            <td>note</td>
+            <td><textarea id="TextArea1" rows="4" cols="20" class="form-control"></textarea></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="Submit1" type="submit" value="order" class="btn btn-secondary btn-lg" /></td>
+        </tr>
+    </table>
+</form>
+
+

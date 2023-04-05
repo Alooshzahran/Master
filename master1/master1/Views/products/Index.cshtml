@@ -1,0 +1,65 @@
+﻿@model IEnumerable<master1.Models.product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+
+}
+
+
+<div style="display:flex;flex-direction:row;justify-content:space-around">
+    <h2>Products</h2>
+    <h2>No. of Rosheta : @Model.Count()</h2>
+    
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_description)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.product_image)*@
+            <img src='../photos/@item.product_image' style="width: 100px;height:100px" class="thumbnail" />
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.product_id }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.product_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

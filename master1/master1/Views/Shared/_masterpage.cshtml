@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    @*<link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">*@
+    <link href="~/Content/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/mybootstrape.css">
+    <link rel="stylesheet" href="~/Content/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+</head>
+<body>
+    <div class="site-wrap">
+
+
+        <div class="site-navbar py-2">
+
+            <div class="search-wrap">
+                <div class="container" style="width:100%;">
+                    <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+                    <form action="#" method="post">
+                        <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+                    </form>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="logo">
+                        <div class="site-logo">
+                            <a href="@Url.Action("Home","container")" class="js-logo-clone">Drug Corner</a>
+                        </div>
+                    </div>
+                    <div class="main-nav d-none d-lg-block">
+                        <nav class="site-navigation text-right text-md-center" role="navigation">
+                            <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                <li class="active"><a href="@Url.Action("Home","container")">Home</a></li>
+                                <li><a href="@Url.Action("shop","container")">Store</a></li>
+                                <li><a href="@Url.Action("Cart","container")">Cart</a></li>
+                                @*<li><a href="@Url.Action("singlecard","container")">singlecard</a></li>*@
+
+                                <li class="has-children">
+                                    <a href="@Url.Action("shop","container")">Products</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Drugs</a></li>
+                                        <li @*class="has-children"*@>
+                                            <a href="#">Skin Care</a>
+                                            @*<ul class="dropdown">
+                        <li><a href="#">C</a></li>
+                        <li><a href="#">Vitamins</a></li>
+                        <li><a href="#">Diet &amp; Nutrition</a></li>
+                        <li><a href="#">Tea &amp; Coffee</a></li>
+                    </ul>*@
+                                        </li>
+                                        <li><a href="#">Babies products</a></li>
+
+
+                                    </ul>
+                                </li>
+                                <li><a href="@Url.Action("About","Home")">About</a></li>
+                                <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+
+                            </ul>
+                            
+                        </nav>
+                    </div>
+                    <div class="icons">
+                        @Html.Partial("_LoginPartial")
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            @RenderBody()
+            @RenderSection("scripts", required: false)
+        </div>
+
+        <div class="site-section bg-secondary bg-image" style="background-image: url('/photos/bg_2.jpg');">
+            <div class="container">
+                <div class="row align-items-stretch">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <a href="@Url.Action("Rosheta","container")" class="banner-1 h-100 d-flex" style="background-image: url('/photos/bg_1.jpg');">
+                            <div class="banner-1-inner align-self-center">
+                                <h2>Add Rosheta</h2>
+                                <p>
+                                    If you have "Rosheta" from your doctor , you can upload it here .
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/photos/bg_2.jpg');">
+                            <div class="banner-1-inner ml-auto  align-self-center">
+                                <h2>Ask doctor</h2>
+                                <p>
+                                    You Can start Conversation with Our doctor and ask about your health condition.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+
+                        <div class="block-7">
+                            <h3 class="footer-heading mb-4">About Us</h3>
+                            <p>
+                               Drug corner is perfect site for you , Which let you to get your drugs and deliver it to your home , and let you talk to doctors , Be Well .
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+                        <h3 class="footer-heading mb-4">Quick Links</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Action("shop","container")">Products</a></li>
+                            <li><a href="@Url.Action("Contact","Home")">Contact Us</a></li>
+                            <li><a href="@Url.Action("About","Home")">About Us</a></li>
+                            <li><a href="@Url.Action("Home","container")#Comments">Comments</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="block-5 mb-5">
+                            <h3 class="footer-heading mb-4">Contact Info</h3>
+                            <ul class="list-unstyled">
+                                <li class="address">Jordan</li>
+                                <li class="phone"><a href="tel://962776915559">+962 776 915 559</a></li>
+                                <li class="email">Drugcorner@gmail.com</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row pt-5 mt-5 text-center">
+                    <div class="col-md-12">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved by Drug Corner 
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_masterpage.cshtml";
+}
+
+<div class="site-blocks-cover" style="background-image:url('/photos/hero_1.jpg'); ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                <div class="site-block-cover-content text-center">
+                    <h2 class="sub-title">Effective Medicine, New Medicine Everyday</h2>
+                    <h1>Welcome To Drug Corner</h1>
+                    <p>
+                        <a href="@Url.Action("shop","container")" class="btn btn-primary px-5 py-3">Shop Now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row align-items-stretch section-overlap">
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="banner-wrap bg-primary h-100">
+                    <a href="#prod" class="h-100">
+                        <h5>Fast <br> Shipping</h5>
+                        <p>                        
+                            From our site we deliver your drugs in less than 6 hours.
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="banner-wrap h-100">
+                    <a href="@Url.Action("Create","Roshetas")" class="h-100">
+                        <h5>Import <br> Your Rosheta</h5>
+                        <p>
+                            Import your prescription image from your doctor here to get your drugs.
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="banner-wrap bg-warning h-100">
+                    <a href="#" class="h-100">
+                        <h5>Your <br> Nofication</h5>
+                        <p>                         
+                           More information about your orders .
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container" id="prod">
+        <div class="row">
+            <div class="title-section text-center col-12">
+                <h2 class="text-uppercase">Our Categories</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var item in ViewBag.dbcat)
+            {
+                <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                    <a href="@Url.Action("shop","container")"> <img src="../photos/@item.CategorieImage" alt="Image" style="width:300px; height:300px;"></a>
+                    <h3 class="text-dark"><a href="@Url.Action("shop","container")">@item.CategoryName</a></h3>
+                    <p class="price">@item.CategoryDiscription</p>
+                </div>
+            }
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="@Url.Action("shop","container")" class="btn btn-primary px-4 py-3">View All Products</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="title-section text-center col-12">
+                <h2 class="text-uppercase">New Products</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 block-3 products-wrap">
+                <div class="nonloop-block-3 owl-carousel">
+                    @foreach (var item in ViewBag.dbprod)
+                    {
+                        <div class="text-center item mb-4">
+                            <a href="@Url.Action("singlecard","container")?id=@item.product_id"> <img src="/photos/@item.product_image" alt="Image" style="width:80%; height:250px;margin-left:10%"></a>
+                            <h3 class="text-dark"><a href="shop-single.html">@item.product_name</a></h3>
+                            <p class="price">$@item.product_price</p>
+                        </div>
+                    }
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container" id="Comments">
+        <div class="row">
+            <div class="title-section text-center col-12">
+                <h2 class="text-uppercase">Testimonials</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 block-3 products-wrap">
+                <div class="nonloop-block-3 no-direction owl-carousel">
+
+                    <div class="testimony">
+                        <blockquote>
+                            <img src="/photos/person_1.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                            <p>&ldquo;where's my order ?? can anyone told me how to refund my money ? &rdquo;</p>
+                        </blockquote>
+
+                        <p>&mdash; Kelly Holmes</p>
+                    </div>
+
+                    <div class="testimony">
+                        <blockquote>
+                            <img src="/photos/person_2.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                            <p>
+                                &ldquo;Thanks you guys for this service , it really help me alot and save time and effort for my , advice all people to try your services &rdquo;
+                            </p>
+                        </blockquote>
+
+                        <p>&mdash; Rebecca Morando</p>
+                    </div>
+
+                    <div class="testimony">
+                        <blockquote>
+                            <img src="/photos/person_3.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                            <p>
+                                &ldquo;I order from this site 3 times and they steal my money but i will order again &rdquo;
+                            </p>
+                        </blockquote>
+
+                        <p>&mdash; Lucas Gallone</p>
+                    </div>
+
+                    <div class="testimony">
+                        <blockquote>
+                            <img src="/photos/person_4.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                            <p>
+                                &ldquo;OMG it's really awesome services but the i have one advice for you , please increase number of products cause i tired from milk &rdquo;
+                            </p>
+                        </blockquote>
+
+                        <p>&mdash; Andrew Neel</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

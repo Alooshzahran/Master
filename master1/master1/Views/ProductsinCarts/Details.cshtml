@@ -1,0 +1,50 @@
+﻿@model master1.Models.ProductsinCart
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductsinCart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productquantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productquantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cart.userid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cart.userid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.product_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/_masterpage.cshtml";
+}
+
+
+<style>
+    body {
+        background-image: url("../photos/background.jfif");
+        width: 100%;
+    }
+
+    form {
+        margin: 5% 15% 5% 15%;
+        background-color: white;
+    }
+
+    table {
+        width: 70%;
+        margin-left: 13%;
+        height: 500px;
+        /*        background-color:antiquewhite;   */
+    }
+
+    footer {
+        background-color: white;
+    }
+</style>
+
+<form>
+    <p style="color:black; text-align:center; font-size:45px;">Contact Us</p>
+    <table>
+
+        <tr>
+            <td>Name</td>
+            <td>
+                <input id="txtname" type="text" class="form-control " />
+            </td>
+
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input id="Text1" type="text" class="form-control" /></td>
+
+        </tr>
+
+        <tr>
+            <td>comment</td>
+            <td><textarea id="TextArea1" rows="4" cols="20" class="form-control"></textarea></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="Submit1" type="submit" value="Send" class="btn btn-secondary btn-lg" /></td>
+        </tr>
+    </table>
+</form>
